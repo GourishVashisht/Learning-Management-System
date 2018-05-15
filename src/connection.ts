@@ -8,14 +8,18 @@ import { Lecture } from './routes/api/lecture';
 
 export const Op = Sequelize.Op;
 
-const db = new Sequelize('learningDb', 'user', 'password', {
-    host: 'localhost',
-    dialect: 'mysql',
-    pool: {
-        min: 0,
-        max: 5
-    }
+const db = new Sequelize({
+    dialect: 'sqlite',
+    storage: './database.db'
 })
+// const db = new Sequelize('learningDb', 'user', 'password', {
+//     host: 'localhost',
+//     dialect: 'mysql',
+//     pool: {
+//         min: 0,
+//         max: 5
+//     }
+// })
 
 export const _Course = db.define<Course, any>('courses', {
     id: {

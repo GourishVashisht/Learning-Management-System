@@ -5,13 +5,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var sequelize_1 = __importDefault(require("sequelize"));
 exports.Op = sequelize_1.default.Op;
-var db = new sequelize_1.default('learningDb', 'user', 'password', {
-    host: 'localhost',
-    dialect: 'mysql',
-    pool: {
-        min: 0,
-        max: 5
-    }
+var db = new sequelize_1.default({
+    dialect: 'sqlite',
+    storage: './database.db'
 });
 exports._Course = db.define('courses', {
     id: {
